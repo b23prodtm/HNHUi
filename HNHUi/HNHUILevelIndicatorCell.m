@@ -78,10 +78,9 @@
 
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
   /* only use custom drawing when on 10.12 and lower */
-  if(@available(macOS 10.13, *)) {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101200
     [super drawWithFrame:cellFrame inView:controlView];
-  }
-  else {
+#else
     CGFloat value = 0.0;
     
     if([controlView respondsToSelector:@selector(doubleValue)]) {
@@ -132,6 +131,6 @@
       [fillGradient drawInBezierPath:pillPath angle:90];
       [pillPath stroke];
     }
-  }
+#endif
 }
 @end

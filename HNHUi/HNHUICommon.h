@@ -18,9 +18,15 @@
  *
  *  @return NSStateOn state when flag is YES, NSOffState when flag is NO
  */
-FOUNDATION_EXTERN NSControlStateValue HNHUIStateForBool(BOOL flag);
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101100
+FOUNDATION_EXTERN NSCellStateValue HNHUIStateForBool(BOOL flag);
+
+FOUNDATION_EXTERN BOOL HNHUIBoolForState(NSCellStateValue state);
+#else
+FOUNDATION_EXTERN NSCellStateValue HNHUIStateForBool(BOOL flag);
 
 FOUNDATION_EXTERN BOOL HNHUIBoolForState(NSControlStateValue state);
+#endif
 
 FOUNDATION_EXTERN void HNHUISetStateFromBool(id stateItem, BOOL isOn);
 

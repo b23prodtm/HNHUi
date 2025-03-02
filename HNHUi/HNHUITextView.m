@@ -8,10 +8,11 @@
 
 #import "HNHUITextView.h"
 #import "HNHUITextField.h"
+//#import <AppKit/NSPasteboard.h>
 
 @implementation HNHUITextView
 
-- (id)validRequestorForSendType:(NSPasteboardType)sendType returnType:(NSPasteboardType)returnType {
+- (id)validRequestorForSendType:(NSString *)sendType returnType:(NSString *)returnType {
   if(self.delegate && [[self.delegate class] conformsToProtocol:@protocol(HNHUITextViewDelegate)]) {
     if([self.delegate respondsToSelector:@selector(allowServicesForTextView:)]) {
       if(![((id<HNHUITextViewDelegate>)self.delegate) allowServicesForTextView:self]) {
