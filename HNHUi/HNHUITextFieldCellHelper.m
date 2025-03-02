@@ -67,7 +67,7 @@ void assignAttributesFromCell(NSTextFieldCell *destination, NSTextFieldCell *sou
   
   CGFloat width = MIN( NSWidth(cellFrame) - BUTTON_MARGIN, cell.cellSize.width + BUTTON_MARGIN);
   NSRect buttonRect = NSMakeRect(NSMaxX(cellFrame) - width, NSMinY(cellFrame), width - BUTTON_MARGIN, NSHeight(cellFrame));
-#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101200
+#if __MAC_OS_X_VERSION_MAX_ALLOWED <= 101300
     cell.state = mouseDown ? NSOnState : NSOffState;
 #else
   cell.state = mouseDown ? NSControlStateValueOn : NSControlStateValueOff;

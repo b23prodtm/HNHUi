@@ -78,7 +78,7 @@
 
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
   /* only use custom drawing when on 10.12 and lower */
-#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101200
+#if __MAC_OS_X_VERSION_MAX_ALLOWED <= 101300
     [super drawWithFrame:cellFrame inView:controlView];
 #else
     CGFloat value = 0.0;
